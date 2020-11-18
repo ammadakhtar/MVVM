@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Gif View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="GifViewController" customModule="whitespectre_ios_challenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search a gif here by name ..." translatesAutoresizingMaskIntoConstraints="NO" id="A9d-8s-UzX">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="WJf-33-rHe"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7ET-ca-tF0">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DdW-xQ-Q1W">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="LTM-mf-Q6a"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="bNf-fK-lM8"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7ET-ca-tF0" secondAttribute="trailing" id="0e9-e2-E8f"/>
+                            <constraint firstItem="7ET-ca-tF0" firstAttribute="top" secondItem="A9d-8s-UzX" secondAttribute="bottom" id="IBV-Ox-fUa"/>
+                            <constraint firstItem="A9d-8s-UzX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="PLO-2s-tdt"/>
+                            <constraint firstItem="A9d-8s-UzX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Qjd-rB-rGZ"/>
+                            <constraint firstItem="7ET-ca-tF0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="YGS-PS-AZy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7ET-ca-tF0" secondAttribute="bottom" id="ch8-12-CLb"/>
+                            <constraint firstItem="A9d-8s-UzX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="f17-QZ-wx6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="7ET-ca-tF0" id="fQV-mB-vws"/>
+                        <outlet property="searchBar" destination="A9d-8s-UzX" id="kV3-lo-UMk"/>
+                        <outlet property="viewModel" destination="drW-tr-cKP" id="FSf-nT-qYf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="rEX-89-AcL" customClass="APIClient" customModule="whitespectre_ios_challenge" customModuleProvider="target"/>
+                <customObject id="drW-tr-cKP" customClass="ViewModel" customModule="whitespectre_ios_challenge" customModuleProvider="target">
+                    <connections>
+                        <outlet property="apiClient" destination="rEX-89-AcL" id="bDE-MA-nx4"/>
+                    </connections>
+                </customObject>
+            </objects>
+        </scene>
+    </scenes>
+</document>
